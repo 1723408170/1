@@ -24,14 +24,14 @@ pip install -r requirements.txt
 （改）
 ```bash
 方法一：
-cd kv
-docker load -i kv.tar
+cd klbr
+docker load -i code.tar
 docker images
-docker run -itd -p 5000:5000 kv:v1.0
+docker run -itd -p 5000:5000 klbr:v1.0
 方法二：
-cd kv
-docker build -t kv:v1.0 .
-docker run -itd -p 5000:5000 kv:v1.0
+cd klbr
+docker build -t klbr:v1.0 .
+docker run -itd -p 5000:5000 klbr:v1.0
 ```
 
 # 二、数据和测试
@@ -72,19 +72,38 @@ docker run -itd -p 5000:5000 kv:v1.0
 文件目录格式如下：
 
 ```
-![image](https://github.com/1723408170/1/assets/114632599/3898ba5d-bb4e-4371-ada9-f797dad22757)
+——code
+	——data
+	——punc_final
+	——PyCorrector_final
+	——subjec_ellipsis
+	——Term_Standard_final
+	——Time_Full_final
+	——Flask.py
+	——main.py
+	——pc.py
+	——pun.py
+	——requirements.txt
+	——se.py
+	——Test.py
+	——tf.py
+	——ts.py
+	——ts_word.py
 
 ```
 
-model_best是训练好的模型文件，Dockerfile是用于docker部署的文件，requirements.txt是所需的依赖包文件，UIEkv.py是项目主文件，用于处理输入数据，加载模型，分析文本和处理输出结果等。
+data存放的是已知的标准词库，punc_final是标点符号处理模块，PyCorrector_final是错别字处理模块，subjec_ellipsis是省略填充模块，Term_Standard_final是术语标准化模块，Time_Full_final是时间填充模块，Flask.py是接口函数，main.py是整体函数，pc.py是错别字纠正接口，pun.py是标点符号纠正接口，requirements.txt是所需的依赖包文件，se.py是主语省略填充接口，Test.py是接口测试函数，tf.py是时间填充接口，ts.py是术语标准化接口（输入句子），ts_word.py是术语标准化接口（输入非标准词）。
 
-UIEkv.py中的kvExtract()函数：
+#### 3.1 省略词填充
 
-```python
-def kvExtract():
-	""""
-	函数功能：用于接收用户输入数据，用模型对输入数据进行分析，然后返回输出结果
-	Args:用户输入数据放在请求的form中的text字段，输入为json格式；返回结果是json格式。
-	""""
-```
+#### 3.2 错别字纠正
+
+#### 3.3 时间填充
+
+#### 3.4 错别字纠正
+
+#### 3.5 术语标准化
+
+
+
 
