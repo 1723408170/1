@@ -21,14 +21,8 @@ pip install -r requirements.txt
 ```
 
 ### 3.docker部署
-（改）
+
 ```bash
-方法一：
-cd klbr
-docker load -i code.tar
-docker images
-docker run -itd -p 5000:5000 klbr:v1.0
-方法二：
 cd klbr
 docker build -t klbr:v1.0 .
 docker run -itd -p 5000:5000 klbr:v1.0
